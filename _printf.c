@@ -4,56 +4,38 @@
 
 int _printf(const char *format, ...)
 {
-    va_list args;
-//va_list args : Declares a variable args of type va_list, which is used to hold the variable arguments passed to the function.
-    int count = 0;
-//int count = 0 :Declares and initializes an integer variable count to 0
-    const char *ptr = format;
-//const char *ptr = format: Declares a pointer ptr and initializes it to point to the beginning of the format string.
-    va_start(args, format);
-//va_start(args, format);: Initializes the args variable to start processing the variable arguments. The format argument is passed to va_start to determine the location of the first variable argument.
-    while (*ptr)
-//loop intil it reashes 0
-    {
-        if (*ptr != '%')
-//if (*ptr != '%'): Checks if the current character is not a % character
-        {
-            write(1, ptr, 1); // Print the character
-            count++;
-        }
-        else
-//else: Starts the else block, which means the current character is a %
-        {
-            ptr++; // Move to the next character after '%'
-            if (*ptr == 'c')
-            {
-                // Handle %c
-                char c = va_arg(args, int);
-                write(1, &c, 1);
+    va_list args;                    // Declare a variable to hold the variable arguments
+    int count = 0;                   // Initialize a counter for the number of characters printed
+    const char *ptr = format;        // Initialize a pointer to the format string
+
+    va_start(args, format);          // Start processing the variable arguments
+
+    while (*ptr) {                   // Loop 
+        if (*ptr != '%') {           // If the character is not a '%'
+            write(1, ptr, 1);        // Write the character to the standard output
+            count++;                 // counter
+        } else {                     // If the character is a '%'
+            ptr++;                   // Move to the next character
+            if (*ptr == 'c') {       // If it is 'c'
+                char c = va_arg(args, int);  // get a character argument
+                write(1, &c, 1);      // Write the character to the standard output
                 count++;
-            }
-            else if (*ptr == 's')
-            {
-                // Handle %s
-                char *s = va_arg(args, char *);
-                while (*s)
-                {
-                    write(1, s, 1);
-                    s++;
+            } else if (*ptr == 's') {  // If the conversion specifier is 's'
+                char *s = va_arg(args, char *);  // get a string argument
+                while (*s) {         // Loop
+                    write(1, s, 1);  // Write the character to the standard output
+                    s++;             // Move to the next character in the string
                     count++;
                 }
-            }
-            else if (*ptr == '%')
-            {
-                // Handle %%
-                write(1, "%", 1);
+            } else if (*ptr == '%') {  // If the conversion specifier is '%%'
+                write(1, "%", 1);     // Write a '%' character to the standard output
                 count++;
             }
         }
-        ptr++;
+        ptr++;                       // Move to the next character in the format string
     }
 
-    va_end(args);
+    va_end(args);                   // End
 
-    return count;
+    return count;                   // Return the total number of characters printed
 }
