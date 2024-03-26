@@ -14,11 +14,16 @@ char print_percent(va_list arg);
 int print_integer(va_list arg);
 int (*get_func(char format)(va_list arg));
 
-
+/**
+ * struct fmt - struct declaration.
+ * @str: format specifier.
+ * @p: pointer to function.
+*/
 typedef struct fmt
 {
-	/* data */
-};
+	int str;
+	int (*p)(va_list);
+} f;
 
 
 #endif /* MAIN_H */
