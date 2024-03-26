@@ -10,7 +10,7 @@
 * to the format specifier.
 */
 
-int (*get_func(char format)(va_list arg))
+int (*get_func(char format))(va_list arg)
 
 {
 f fu[] = {
