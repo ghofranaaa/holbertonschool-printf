@@ -21,8 +21,8 @@ int (*get_func(char format))(va_list arg);
 */
 typedef struct fmt
 {
-	int str;
-	int (*p)(va_list);
+	char str;
+	char (*p)(va_list);
 } f;
 
 
