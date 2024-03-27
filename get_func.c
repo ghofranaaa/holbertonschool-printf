@@ -20,6 +20,8 @@ int (*get_func(char format))(va_list arg)
 		{'s', print_string},    /* String specifier */
 		{'%', print_percent},   /* Percent specifier */
 		{'\0', NULL},           /* Null terminator to indicate end of array */
+		{NULL, NULL}
+
 	};
 
 	int i; /* Declare an integer variable i */
