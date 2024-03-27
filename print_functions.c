@@ -4,29 +4,30 @@
  * print_string - printing string.
  * @arg: va_list type.
  * Return: integer, otherwise NULL.
-*/
+ */
 
 int print_string(va_list arg)
 {
-char *string;
-int i;
-string = va_arg(arg, char *);
+	char *string;
+	int i;
 
-if (string == NULL)
-return;
+	string = va_arg(arg, char *);
 
-for (i = 0; string[i] != '\0'; i++)
-{
-_putchar(string[i]);
-}
-return (i);
+	if (string == NULL)
+		string = "(null)";
+
+	for (i = 0; string[i] != '\0'; i++)
+	{
+		_putchar(string[i]);
+	}
+	return (i);
 }
 
 /**
  * print_character - printing character.
  * @arg: va_list type.
  * Return: 1 on success, otherwise NULL.
-*/
+ */
 
 int print_character(va_list arg)
 {
@@ -38,7 +39,7 @@ int print_character(va_list arg)
  * print_percent - printing character.
  * @arg: va_list type.
  * Return: 1 on success, otherwise NULL.
-*/
+ */
 
 int print_percent(va_list arg)
 {

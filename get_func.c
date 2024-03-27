@@ -13,7 +13,7 @@
  * format specifier.
  */
 
-int (*get_func(char format))(va_list)
+int (*get_func(char format))(va_list arg)
 {
 	f fu[] = {
 		{'c', print_character},
