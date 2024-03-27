@@ -20,7 +20,7 @@ int (*get_func(char format))(va_list arg);
 typedef struct fmt
 {
 	char str;
-	char (*p)(va_list);
+	char (*p)(va_list arg);
 } f;
 
 #endif /* MAIN_H */
