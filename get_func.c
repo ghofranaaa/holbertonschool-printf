@@ -24,9 +24,9 @@ int (*get_func(char format))(va_list arg)
 
 	int i;
 
-	for (i = 0; fu[i].c != '\0'; i++)
+	for (i = 0; fu[i].str != '\0'; i++)
 	{
-		if (fu[i].c == format)
+		if (fu[i].str == format)
 		{
 			return (fu[i].p);
 		}
