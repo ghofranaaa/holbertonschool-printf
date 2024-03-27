@@ -17,7 +17,7 @@ int _printf(const char *format, ...)
 	va_start(args, format); /* Start processing the variable arguments */
 
 	while (*ptr)
-	{ /* Loop */
+	{
 		if (*ptr != '%')
 		{					  /* If the character is not a '%' */
 			write(1, ptr, 1); /* Write the character to the standard output */
