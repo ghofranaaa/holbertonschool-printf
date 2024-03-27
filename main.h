@@ -25,4 +25,18 @@ typedef struct fmt
 	int (*p)(va_list);
 } f;
 
+
+
+/**
+ * struct specifier - structure for specifiers
+ * @type: type of specifier
+ * @f: function pointer to the specifier
+ */
+
+typedef struct specifier
+{
+	char type;
+	void (*handler)(va_list arg, int *);
+} spec;
+
 #endif /* MAIN_H */

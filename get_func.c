@@ -15,7 +15,7 @@
 
 int (*get_func(char format))(va_list arg) 
 {
-	f fu[] = {
+	spec fu[] = {
 		{'c', print_character}, /* Character specifier */
 		{'s', print_string},    /* String specifier */
 		{'%', print_percent},   /* Percent specifier */
