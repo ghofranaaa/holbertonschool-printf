@@ -13,7 +13,7 @@ int i;
 string = va_arg(arg, char *);
 
 if (string == NULL)
-return (NULL);
+return;
 
 for (i = 0; string[i] != '\0'; i++)
 {
@@ -42,7 +42,7 @@ int print_character(va_list arg)
 
 int print_percent(va_list arg)
 {
-	int percent __attribute__((unused)) = va_arg(p, int);
+	int percent __attribute__((unused)) = va_arg(arg, int);
 	_putchar('%');
 	return (1);
 }
