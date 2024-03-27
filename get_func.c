@@ -13,24 +13,26 @@
  * format specifier.
  */
 
-int (*get_func(char format))(va_list arg)
+int (*get_func(char format))(va_list arg) 
 {
 	f fu[] = {
-		{'c', print_character},
-		{'s', print_string},
-		{'%', print_percent},
-		{'\0', NULL},
+		{'c', print_character}, /* Character specifier */
+		{'s', print_string},    /* String specifier */
+		{'%', print_percent},   /* Percent specifier */
+		{'\0', NULL},           /* Null terminator to indicate end of array */
 	};
 
-	int i;
+	int i; /* Declare an integer variable i */
 
-	for (i = 0; fu[i].str != '\0'; i++)
+	for (i = 0; fu[i].str != '\0'; i++) /* Loop through the array until null terminator is reached */
 	{
-		if (fu[i].str == format)
+		if (fu[i].str == format) /* Check if the current format specifier matches the input format */
 		{
-			return (fu[i].p);
+			return (fu[i].p); /* Return the corresponding function pointer */
 		}
 	}
+
+	return (NULL); /* If no match is found, return NULL */
 
 	return (NULL);
 }
