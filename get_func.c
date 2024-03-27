@@ -19,7 +19,8 @@ int (*get_func(char format))(va_list arg)
 		{'c', print_character}, /* Character specifier */
 		{'s', print_string},    /* String specifier */
 		{'%', print_percent},   /* Percent specifier */
-		{'\0', NULL},           /* Null terminator to indicate end of array */
+		{NULL, NULL},           /* Null terminator to indicate end of array */
+		
 
 	};
 
