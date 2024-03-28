@@ -54,4 +54,3 @@ int _printf(const char *format, ...)
 
 	return (count); /* Return the total number of characters printed */
 }
-ghofrane
