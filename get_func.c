@@ -25,7 +25,7 @@ int (*get_func(char format))(va_list arg)
 
 	for (i = 0; fu[i].str != '\0'; i++) /* Loop until null term is reached */
 	{
-		if (fu[i].str == format) /* Check if the current format specifier matches the input format */
+		if (fu[i].str == format) /* Checke if matches the input format */
 		{
 			return (fu[i].p); /* Return the corresponding function pointer */
 		}
