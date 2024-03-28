@@ -20,38 +20,37 @@ int _printf(const char *format, ...)
 	{
 		if (*ptr != '%')
 		{					  /* If the character is not a '%' */
-			write(1, ptr, 1); /* Write the character to the standard output */
+			_putchar(*ptr); /* Write the character to the standard output */
 			count++;		  /* Increment the character count */
 		}
 		else
 		{		   /* If the character is a '%' */
 			ptr++; /* Move to the next character */
-			if (*ptr == 'c')
-			{								/* If it is 'c' */
-				char c = va_arg(args, int); /* Get a character argument */
-				write(1, &c, 1);			/* Write the character to the standard output */
-				count++;
-			}
-			else if (*ptr == 's')
-			{									/* If the conversion specifier is 's' */
-				char *s = va_arg(args, char *); /* Get a string argument */
-				while (*s)
-				{					/* Loop */
-					write(1, s, 1); /* Write the character to the standard output */
-					s++;			/* Move to the next character in the string */
-					count++;
-				}
-			}
-			else if (*ptr == '%')
-			{					  /* If the conversion specifier is '%%' */
-				write(1, "%", 1); /* Write a '%' character to the standard output */
-				count++;
-			}
-		}
+            if (*ptr == '\0')
+                return (-1);
+
+            switch (*ptr)
+            {
+            case 'c':
+                count += print_character(args);
+                break;
+            case 's':
+                count += print_string(args);
+                break;
+            case '%':
+                count += print_percent(args);
+                break;
+            default:
+                _putchar('%');
+                _putchar(*ptr);
+                count += 2;
+                break;
+            }
+        }
 		ptr++; /* Move to the next character in the format string */
 	}
 
 	va_end(args); /* End */
 
-	return count; /* Return the total number of characters printed */
+	return (count); /* Return the total number of characters printed */
 }
