@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 		else
 		{		   /* If the character is a '%' */
 			ptr++; /* Move to the next character */
-            if (*ptr == '\0')/* If the next character is null terminator, return -1 */
+            if (*ptr == '\0') /* If the next character is null terminator, return -1 */
                 return (-1);
 
             switch (*ptr)  /* Switch statement to handle different format specifiers */
