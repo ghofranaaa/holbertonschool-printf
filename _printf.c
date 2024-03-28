@@ -26,24 +26,24 @@ int _printf(const char *format, ...)
 		else
 		{		   /* If the character is a '%' */
 			ptr++; /* Move to the next character */
-            if (*ptr == '\0')
+            if (*ptr == '\0')/* If the next character is null terminator, return -1 */
                 return (-1);
 
-            switch (*ptr)
+            switch (*ptr)  /* Switch statement to handle different format specifiers */
             {
-            case 'c':
+            case 'c':      /* If the specifier is 'c' */
                 count += print_character(args);
                 break;
-            case 's':
+            case 's':      /* If the specifier is 's' */
                 count += print_string(args);
                 break;
-            case '%':
+            case '%':      /* If the specifier is '%' */
                 count += print_percent(args);
                 break;
             default:
-                _putchar('%');
-                _putchar(*ptr);
-                count += 2;
+                _putchar('%');       /* Print '%' */
+                _putchar(*ptr);      /* Print the next character */
+                count += 2;          /* Increment the count by 2 */
                 break;
             }
         }
