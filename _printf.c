@@ -10,12 +10,10 @@
  */
 int _printf(const char *format, ...)
 {
-	va_list args;               /* Declare a variable to hold the variable arguments */
-	int count = 0;              /* Initialize a counter for the number of characters printed */
+	va_list args;               /* Declare a var to hold the var arguments */
+	int count = 0;              /* Init a counter */
 	const char *ptr = format;   /* Initialize a pointer to the format string */
-
 	va_start(args, format);     /* Start processing the variable arguments */
-
 	while (*ptr)
 	{
 		if (*ptr != '%')
@@ -26,10 +24,10 @@ int _printf(const char *format, ...)
 		else
 		{                       /* If the character is a '%' */
 			ptr++;              /* Move to the next character */
-			if (*ptr == '\0')   /* If the next character is null terminator, return -1 */
+			if (*ptr == '\0')   /* If the next char is null terminator, return -1 */
 				return (-1);
 
-			switch (*ptr)       /* Switch statement to handle different format specifiers */
+			switch (*ptr)       /* Switch stat to handle diff format specifiers */
 			{
 			case 'c':           /* If the specifier is 'c' */
 				count += print_character(args);
@@ -50,8 +48,6 @@ int _printf(const char *format, ...)
 		}
 		ptr++;                 /* Move to the next character in the format string */
 	}
-
 	va_end(args);             /* End */
-
 	return (count);           /* Return the total number of characters printed */
 }
