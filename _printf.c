@@ -10,48 +10,48 @@
  */
 int _printf(const char *format, ...)
 {
-	va_list args;			  /* Declare a variable to hold the variable arguments */
-	int count = 0;			  /* Initialize a counter for the number of characters printed */
-	const char *ptr = format; /* Initialize a pointer to the format string */
+	va_list args;               /* Declare a variable to hold the variable arguments */
+	int count = 0;              /* Initialize a counter for the number of characters printed */
+	const char *ptr = format;   /* Initialize a pointer to the format string */
 
-	va_start(args, format); /* Start processing the variable arguments */
+	va_start(args, format);     /* Start processing the variable arguments */
 
 	while (*ptr)
 	{
 		if (*ptr != '%')
-		{					  /* If the character is not a '%' */
-			_putchar(*ptr); /* Write the character to the standard output */
-			count++;		  /* Increment the character count */
+		{                       /* If the character is not a '%' */
+			_putchar(*ptr);     /* Write the character to the standard output */
+			count++;            /* Increment the character count */
 		}
 		else
-		{		   /* If the character is a '%' */
-			ptr++; /* Move to the next character */
-			if (*ptr == '\0') /* If the next character is null terminator, return -1 */
+		{                       /* If the character is a '%' */
+			ptr++;              /* Move to the next character */
+			if (*ptr == '\0')   /* If the next character is null terminator, return -1 */
 				return (-1);
 
-			switch (*ptr) /* Switch statement to handle different format specifiers */
+			switch (*ptr)       /* Switch statement to handle different format specifiers */
 			{
-			case 'c': /* If the specifier is 'c' */
+			case 'c':           /* If the specifier is 'c' */
 				count += print_character(args);
 				break;
-			case 's': /* If the specifier is 's' */
+			case 's':           /* If the specifier is 's' */
 				count += print_string(args);
 				break;
-			case '%': /* If the specifier is '%' */
+			case '%':           /* If the specifier is '%' */
 				_putchar('%');
 				count++;
 				break;
 			default:
 				_putchar('%');  /* Print '%' */
 				_putchar(*ptr); /* Print the next character */
-				count += 2;	 /* Increment the count by 2 */
+				count += 2;     /* Increment the count by 2 */
 				break;
 			}
 		}
-		ptr++; /* Move to the next character in the format string */
+		ptr++;                 /* Move to the next character in the format string */
 	}
 
-	va_end(args); /* End */
+	va_end(args);             /* End */
 
-	return (count); /* Return the total number of characters printed */
+	return (count);           /* Return the total number of characters printed */
 }
