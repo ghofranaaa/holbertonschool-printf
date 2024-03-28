@@ -15,15 +15,15 @@
 int (*get_func(char format))(va_list arg)
 {
 	f fu[] = {
-		{'c', print_character}, /* Character specifier */
-		{'s', print_string},    /* String specifier */
+		{'c', print_character}, /* Char specifier */
+		{'s', print_string},    /* Str specifier */
 		{'%', print_percent},   /* Percent specifier */
 		{'\0', NULL},           /* Null terminator to indicate end of array */
 	};
 
-	int i; /* Declare an integer variable i */
+	int i; /* Declare an int variable i */
 
-	for (i = 0; fu[i].str != '\0'; i++) /* Loop through the array until null terminator is reached */
+	for (i = 0; fu[i].str != '\0'; i++) /* Loop until null term is reached */
 	{
 		if (fu[i].str == format) /* Check if the current format specifier matches the input format */
 		{
