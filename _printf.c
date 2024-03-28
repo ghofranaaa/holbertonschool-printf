@@ -38,7 +38,8 @@ int _printf(const char *format, ...)
 				count += print_string(args);
 				break;
 			case '%': /* If the specifier is '%' */
-				count += print_percent(args);
+				_putchar('%');
+				count++;
 				break;
 			default:
 				_putchar('%');	/* Print '%' */
