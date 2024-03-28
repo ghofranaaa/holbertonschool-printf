@@ -20,34 +20,33 @@ int _printf(const char *format, ...)
 	{
 		if (*ptr != '%')
 		{					  /* If the character is not a '%' */
-			_putchar(*ptr); /* Write the character to the standard output */
+			write(1, ptr, 1); /* Write the character to the standard output */
 			count++;		  /* Increment the character count */
 		}
 		else
-		{		   /* If the character is a '%' */
-			ptr++; /* Move to the next character */
-            if (*ptr == '\0') /* If the next character is null terminator, return -1 */
-                return (-1);
+		{					  /* If the character is a '%' */
+			ptr++;			  /* Move to the next character */
+			if (*ptr == '\0') /* If the next character is null terminator, return -1 */
+				return (-1);
 
-            switch (*ptr)  /* Switch statement to handle different format specifiers */
-            {
-            case 'c':      /* If the specifier is 'c' */
-                count += print_character(args);
-                break;
-            case 's':      /* If the specifier is 's' */
-                count += print_string(args);
-                break;
-            case '%': /* If the specifier is '%' */
-				_putchar('%');
-				count++;
+			switch (*ptr) /* Switch statement to handle different format specifiers */
+			{
+			case 'c': /* If the specifier is 'c' */
+				count += print_character(args);
+				break;
+			case 's': /* If the specifier is 's' */
+				count += print_string(args);
+				break;
+			case '%': /* If the specifier is '%' */
+				count += print_percent(args);
 				break;
 			default:
-				_putchar('%');  /* Print '%' */
+				_putchar('%');	/* Print '%' */
 				_putchar(*ptr); /* Print the next character */
-				count += 2;	 /* Increment the count by 2 */
+				count += 2;		/* Increment the count by 2 */
 				break;
-            }
-        }
+			}
+		}
 		ptr++; /* Move to the next character in the format string */
 	}
 
