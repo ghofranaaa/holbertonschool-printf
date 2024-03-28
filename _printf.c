@@ -20,12 +20,12 @@ int _printf(const char *format, ...)
 	{
 		if (*ptr != '%')
 		{					  /* If the character is not a '%' */
-			write(1, ptr, 1); /* Write the character to the standard output */
+			_putchar(*ptr); /* Write the character to the standard output */
 			count++;		  /* Increment the character count */
 		}
 		else
-		{					  /* If the character is a '%' */
-			ptr++;			  /* Move to the next character */
+		{		   /* If the character is a '%' */
+			ptr++; /* Move to the next character */
 			if (*ptr == '\0') /* If the next character is null terminator, return -1 */
 				return (-1);
 
@@ -42,9 +42,9 @@ int _printf(const char *format, ...)
 				count++;
 				break;
 			default:
-				_putchar('%');	/* Print '%' */
+				_putchar('%');  /* Print '%' */
 				_putchar(*ptr); /* Print the next character */
-				count += 2;		/* Increment the count by 2 */
+				count += 2;	 /* Increment the count by 2 */
 				break;
 			}
 		}
