@@ -2,16 +2,16 @@
 
 /**
  * print_string - printing string.
- * @arg: va_list type.
+ * @args: va_list type.
  * Return: integer, otherwise NULL.
  */
 
-int print_string(va_list arg)
+int print_string(va_list args)
 {
 	char *string;
 	int i;
 
-	string = va_arg(arg, char *);
+	string = va_arg(args, char *);
 
 	if (string == NULL)
 		string = "(null)";
@@ -25,25 +25,25 @@ int print_string(va_list arg)
 
 /**
  * print_character - printing character.
- * @arg: va_list type.
+ * @args: va_list type.
  * Return: 1 on success, otherwise NULL.
  */
 
-int print_character(va_list arg)
+int print_character(va_list args)
 {
-	_putchar(va_arg(arg, int));
+	_putchar(va_arg(args, int));
 	return (1);
 }
 
 /**
  * print_percent - printing character.
- * @arg: va_list type.
+ * @args: va_list type.
  * Return: 1 on success, otherwise NULL.
  */
 
-int print_percent(va_list arg)
+int print_percent(va_list args)
 {
-	int percent __attribute__((unused)) = va_arg(arg, int);
+	int percent __attribute__((unused)) = va_arg(args, int);
 	_putchar('%');
 	return (1);
 }

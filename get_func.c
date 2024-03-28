@@ -12,7 +12,8 @@
  * Return: Pointer to the printing function corresponding to the
  * format specifier.
  */
-int (*get_func(char format))(va_list arg)
+
+int (*get_func(char format))(va_list args)
 {
 	f fu[] = {
 		{'c', print_character}, /* Char specifier */
@@ -23,11 +24,11 @@ int (*get_func(char format))(va_list arg)
 
 	int i; /* Declare an int variable i */
 
-	for (i = 0; fu[i].str != '\0'; i++) /* Loop until null term is reached */
+	for (i = 0; fu[i].str != '\0'; i++)
 	{
-		if (fu[i].str == format) /* Checke if matches the input format */
+		if (fu[i].str == format)
 		{
-			return (fu[i].p); /* Return the corresponding function pointer */
+			return (fu[i].p);
 		}
 	}
 

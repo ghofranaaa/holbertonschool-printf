@@ -7,9 +7,9 @@
 
 /* Function prototypes */
 int _printf(const char *format, ...);
-int print_string(va_list arg);
-int print_character(va_list arg);
-int print_percent(va_list arg);
+int print_string(va_list args);
+int print_character(va_list args);
+int print_percent(va_list args);
 int (*get_func(char format))(va_list);
 int _putchar(char c);
 int Jump_to_secand_specifier(char specifier, va_list args);
