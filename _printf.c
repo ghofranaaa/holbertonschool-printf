@@ -29,7 +29,6 @@ int _printf(const char *format, ...)
 			/* Get the function pointer corresponding to the format specifier */
 			func_p = get_func(*ptr);
 
-
 			if (func_p != NULL) /* Check if the function pointer is valid */
 				count += func_p(args); /* Call the function with variable arguments */
 			else
