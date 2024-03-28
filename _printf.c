@@ -10,7 +10,7 @@ int _printf(const char *format, ...)
 	va_list args;
 	int count = 0;
 	const char *ptr = format;
-	int (*func_p)(va_list);
+	int (*func_p)(va_list) = 0;
 
 	va_start(args, format);
 	while (*ptr)
