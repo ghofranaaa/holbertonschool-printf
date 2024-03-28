@@ -53,20 +53,20 @@ int count = 0;
 switch (specifier)
 {
 case 'c':           /* If the specifier is 'c' */
-    count += print_character(args);
-    break;
+count += print_character(args);
+break;
 case 's':           /* If the specifier is 's' */
-    count += print_string(args);
-    break;
+count += print_string(args);
+break;
 case '%':           /* If the specifier is '%' */
-    _putchar('%');
-    count++;
-    break;
+_putchar('%');
+count++;
+break;
 default:
-    _putchar('%');  /* Print '%' */
-    _putchar(specifier); /* Print the specifier character */
-    count += 2;     /* Increment the count by 2 */
-    break;
+_putchar('%');  /* Print '%' */
+_putchar(specifier); /* Print the specifier character */
+count += 2;     /* Increment the count by 2 */
+break;
 }
 
 return (count); /* Added parentheses around count */
