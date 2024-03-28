@@ -36,5 +36,4 @@ int (*get_func(char format))(va_list arg)
 
 	return (NULL); /* If no match is found, return NULL */
 
-	return (NULL);
 }
