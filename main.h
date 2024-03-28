@@ -12,7 +12,7 @@ int print_character(va_list arg);
 int print_percent(va_list arg);
 int (*get_func(char format))(va_list);
 int _putchar(char c);
-int Jump_to_secand_specifier(char specifier, va_list args);
+int handle_format_specifier(char specifier, va_list args);
 
 /**
  * struct fmt - struct declaration.
