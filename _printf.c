@@ -20,7 +20,7 @@ int _printf(const char *format, ...)
 	{
 		if (*ptr != '%')
 		{                       /* If the character is not a '%' */
-			_putchar(*ptr);     /* Write the character to the standard output */
+			_putchar(*ptr);     /* Writeee the character to the standard output */
 			count++;            /* Increment the character count */
 		}
 		else
