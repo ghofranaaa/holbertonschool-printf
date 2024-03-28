@@ -37,14 +37,15 @@ int _printf(const char *format, ...)
             case 's':      /* If the specifier is 's' */
                 count += print_string(args);
                 break;
-            case '%':      /* If the specifier is '%' */
-                count += print_percent(args);
-                break;
-            default:
-                _putchar('%');       /* Print '%' */
-                _putchar(*ptr);      /* Print the next character */
-                count += 2;          /* Increment the count by 2 */
-                break;
+            case '%': /* If the specifier is '%' */
+				_putchar('%');
+				count++;
+				break;
+			default:
+				_putchar('%');  /* Print '%' */
+				_putchar(*ptr); /* Print the next character */
+				count += 2;	 /* Increment the count by 2 */
+				break;
             }
         }
 		ptr++; /* Move to the next character in the format string */
