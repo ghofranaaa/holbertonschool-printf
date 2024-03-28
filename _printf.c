@@ -12,8 +12,11 @@ int _printf(const char *format, ...)
 {
 	va_list args;               /* Declare a var to hold the var arguments */
 	int count = 0;              /* Init a counter */
+
 	const char *ptr = format;   /* Init a pointer to the format str */
+
 	va_start(args, format);     /* Start process the var arguments */
+
 	while (*ptr)
 	{
 		if (*ptr != '%')
@@ -48,6 +51,7 @@ int _printf(const char *format, ...)
 		}
 		ptr++;                 /* Move to the next character in the format str */
 	}
+
 	va_end(args);             /* End */
 	return (count);           /* Return the total number of characters printed */
 }
