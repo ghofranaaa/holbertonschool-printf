@@ -10,32 +10,32 @@
 int _printf(const char *format, ...)
 {
     va_list args;
-    int count = 0;          /* Init a counter for the number of char printed */
-    const char *ptr = format;   /* Init a pointer to the format str */
-    int (*func_p)(va_list) = 0;
+    int count = 0;
+    const char *ptr = format;
+    int (*func_p)(va_list) = NULL;
 
-    if (format == NULL)     /* Check if the format str is NULL */
+    if (format == NULL)
         return (-1);
 
-    va_start(args, format); /* Start the var argument list */
+    va_start(args, format);
 
-    while (*ptr)            /* Loop */
+    while (*ptr)
     {
-        if (*ptr != '%')    /* Check if the current character is not '%' */
+        if (*ptr != '%')
         {
-            _putchar(*ptr); /* Print the char to stdout */
+            _putchar(*ptr);
             count++;
         }
-        else                /* If the current char is '%' */
+        else
         {
-            ptr++;          /* Move to the next char */
-            if (*ptr == '\0')   /* Check if the next char is NULL */
-                return (-1);    /* Return -1 if the next char is NULL */
+            ptr++;
+            if (*ptr == '\0')
+                return (-1);
 
-            func_p = get_func(*ptr);    /* Get the printing function for the specifier */
+            func_p = get_func(*ptr);
 
-            if (func_p != NULL)         /* If a valid printing function is found */
-                count += func_p(args);  /* Call the printing function and update the count */
+            if (func_p != NULL)
+                count += func_p(args);
             else
             {
                 if (*ptr == 's')
@@ -45,18 +45,18 @@ int _printf(const char *format, ...)
                 else if (*ptr == '%')
                     count += print_percent(args);
                 else if (*ptr == 'd' || *ptr == 'i')
-                    count += print_integer(args);            
-            else                        /* If no valid printing function is found */
-            {
-                _putchar('%');          /* Print '%' */
-                _putchar(*ptr);         /* Print the specifier character */
-                count += 2;             /* Increment the count by 2 (for '%' and the specifier character) */
+                    count += print_integer(args);
+                else
+                {
+                    _putchar('%');
+                    _putchar(*ptr);
+                    count += 2;
+                }
             }
-
         }
         ptr++;
     }
 
     va_end(args);
-    return (count); /* Return the total number of characters printed */
+    return (count);
 }
