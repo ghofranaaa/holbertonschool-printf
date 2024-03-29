@@ -60,15 +60,19 @@ int print_integer(va_list args)
 {
     int num = va_arg(args, int);
     int count = 0;
+
     /* Handle negative numbers */
     if (num < 0)
     {
         _putchar('-');
         count++;
+        /* Convert to positive */
         num = -num;
     }
-    /* Print each digit */
+
+    /* Print the positive number */
     count += print_number(num);
+
     return (count);
 }
 
