@@ -36,6 +36,16 @@ int _printf(const char *format, ...)
 
             if (func_p != NULL)         /* If a valid printing function is found */
                 count += func_p(args);  /* Call the printing function and update the count */
+            else
+            {
+                if (*ptr == 's')
+                    count += print_string(args);
+                else if (*ptr == 'c')
+                    count += print_character(args);
+                else if (*ptr == '%')
+                    count += print_percent(args);
+                else if (*ptr == 'd' || *ptr == 'i')
+                    count += print_integer(args);            
             else                        /* If no valid printing function is found */
             {
                 _putchar('%');          /* Print '%' */

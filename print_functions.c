@@ -49,3 +49,47 @@ int print_percent(va_list args)
 	_putchar('%');
 	return (1);
 }
+
+/**
+ * print_integer - Prints an integer
+ * @args: The va_list of arguments
+ *
+ * Return: The number of characters printed
+ */
+int print_integer(va_list args)
+{
+    int num = va_arg(args, int);
+    int count = 0;
+    /* Handle negative numbers */
+    if (num < 0)
+    {
+        _putchar('-');
+        count++;
+        num = -num;
+    }
+    /* Print each digit */
+    count += print_number(num);
+    return (count);
+}
+
+/**
+ * print_number - Prints a number
+ * @n: The number to print
+ *
+ * Return: The number of digits printed
+ */
+int print_number(int n)
+{
+    int count = 0;
+    /* Base case: If n is 0, print 0 */
+    if (n == 0)
+    {
+        _putchar('0');
+        return (1);
+    }
+    /* Recursively print digits */
+    if (n / 10)
+        count += print_number(n / 10);
+    _putchar(n % 10 + '0');
+    return (count + 1);
+}
