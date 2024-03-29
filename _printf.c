@@ -36,21 +36,13 @@ int _printf(const char *format, ...)
 
 			if (func_p != NULL)
 				count += func_p(args);
-			else
-			{
-				if (*ptr == 's')
-					count += print_string(args);
-				else if (*ptr == 'c')
-					count += print_character(args);
-				else if (*ptr == '%')
-					count += print_percent(args);
 				else
 				{
 					_putchar('%');
 					_putchar(*ptr);
 					count += 2;
 				}
-			}
+
 		}
 		ptr++;
 	}
