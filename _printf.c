@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdarg.h>
+
 /**
  * _printf - Prints formatted output to stdout
  * @format: The format string
@@ -7,40 +8,45 @@
  **/
 int _printf(const char *format, ...)
 {
+
 	va_list args;
 	int count = 0;
 	const char *ptr = format;
 	int (*func_p)(va_list) = 0;
 
 	va_start(args, format);
+	if (format == NULL)
+		return (-1);
 	while (*ptr)
 	{
 		if (*ptr != '%')
-
-		{					/* If the character is not a '%' */
-			_putchar(*ptr); /* Write the character to the standard output */
-			count++;		/* Increment the character count */
-		}
+		{	_putchar(*ptr);
+			count++; }
 		else
-		{                       /* If the character is '%' */
-			ptr++;              /* Move to the next char */
-			if (*ptr == '\0')   /* If the next char is null terminator, return -1 */
+		{
+			ptr++;
+			if (*ptr == '\0')
 				return (-1);
-			/* Get the function pointer corresponding to the format specifier */
 			func_p = get_func(*ptr);
-
-			if (func_p != NULL) /* Check if the function pointer is valid */
-				count += func_p(args); /* Call the function with variable arguments */
+			if (func_p != NULL)
+				count += func_p(args);
 			else
 			{
-				_putchar('%');	/* Print '%' */
-				_putchar(*ptr); /* Print the next character */
-				count += 2;		/* Increment the count by 2 */
+				if (*ptr == 's')
+					count += print_string(args);
+				else if (*ptr == 'c')
+					count += print_character(args);
+				else if (*ptr == '%')
+					count += print_percent(args);
+				else
+				{	_putchar('%');
+					_putchar(*ptr);
+					count += 2; }
 			}
 		}
-		ptr++;                 /* Move to the next character in the format str */
+		ptr++;
 	}
-
-	va_end(args); /* End */
+	va_end(args);
 	return (count);
 }
+
