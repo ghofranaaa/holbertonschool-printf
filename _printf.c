@@ -20,8 +20,10 @@ int _printf(const char *format, ...)
 	while (*ptr)
 	{
 		if (*ptr != '%')
-		{	_putchar(*ptr);
-			count++; }
+		{	
+			_putchar(*ptr);
+			count++;
+		}
 		else
 		{
 			ptr++;
@@ -33,15 +35,17 @@ int _printf(const char *format, ...)
 			else
 			{
 				if (*ptr == 's')
-					count += print_string(args);
+					count += print_string(va_arg(args, char *));
 				else if (*ptr == 'c')
-					count += print_character(args);
+					count += print_character(va_arg(args, int));
 				else if (*ptr == '%')
-					count += print_percent(args);
+					count += print_percent();
 				else
-				{	_putchar('%');
+				{	
+					_putchar('%');
 					_putchar(*ptr);
-					count += 2; }
+					count += 2; 
+				}
 			}
 		}
 		ptr++;
