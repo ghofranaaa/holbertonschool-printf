@@ -64,10 +64,9 @@ int print_integer(va_list args)
     /* Handle negative numbers */
     if (num < 0)
     {
-        _putchar('-');
-        count++;
-        /* Convert to positive */
-        num = -num;
+        _putchar('-');          /* Print a minus sign for negative numbers */
+        count++;                /* Increment count for the minus sign */
+        num = -num;             /* Convert the number to positive */
     }
 
     /* Print the positive number */
@@ -88,12 +87,14 @@ int print_number(int n)
     /* Base case: If n is 0, print 0 */
     if (n == 0)
     {
-        _putchar('0');
-        return (1);
+        _putchar('0');          /* Print '0' for zero */
+        return (1);             /* Return 1 for the '0' character */
     }
-    /* Recursively print digits */
     if (n / 10)
-        count += print_number(n / 10);
-    _putchar(n < 0 ? '0' - (n % 10) : '0' + (n % 10));
+        count += print_number(n / 10); /* Recursively call print_number for each digit */
+    if (n < 0)
+        _putchar('0' - (n % 10)); /* Print each digit as a negative number */
+    else
+        _putchar('0' + (n % 10)); /* Print each digit as a positive number */
     return (count + 1);
 }
