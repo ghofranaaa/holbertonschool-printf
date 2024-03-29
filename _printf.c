@@ -35,11 +35,11 @@ int _printf(const char *format, ...)
 			else
 			{
 				if (*ptr == 's')
-					count += print_string(va_arg(args, char *));
+					count += print_string(args);
 				else if (*ptr == 'c')
-					count += print_character(va_arg(args, int));
+					count += print_character(args);
 				else if (*ptr == '%')
-					count += print_percent();
+					count += print_percent(args);
 				else
 				{	
 					_putchar('%');
@@ -53,4 +53,3 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
-
