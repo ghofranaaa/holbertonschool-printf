@@ -15,22 +15,22 @@
 
 int (*get_func(char format))(va_list args)
 {
-	f fu[] = {
-		{'c', print_character}, /* Char specifier */
-		{'s', print_string},    /* Str specifier */
-		{'%', print_percent},   /* Percent specifier */
-		{'\0', NULL},           /* Null terminator to indicate end of array */
-	};
+    f fu[] = {
+        {'c', print_character}, /* Char specifier */
+        {'s', print_string},    /* Str specifier */
+        {'%', print_percent},   /* Percent specifier */
+        {'\0', NULL},           /* Null terminator to indicate end of array */
+    };
 
-	int i; /* Declare an int variable i */
+    int i; /* Declare an int variable i */
 
-	for (i = 0; fu[i].str != '\0'; i++)
-	{
-		if (fu[i].str == format)
-		{
-			return (fu[i].p);
-		}
-	}
+    for (i = 0; fu[i].str != '\0'; i++)
+    {
+        if (fu[i].str == format)
+        {
+            return (fu[i].p);
+        }
+    }
 
-	return (NULL); /* If no match is found, return NULL */
+    return (NULL); /* If no match is found, return NULL */
 }

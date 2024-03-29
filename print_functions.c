@@ -8,19 +8,19 @@
 
 int print_string(va_list args)
 {
-	char *string;
-	int i;
+    char *string;
+    int i;
 
-	string = va_arg(args, char *);
+    string = va_arg(args, char *);
 
-	if (string == NULL)
-		string = "(null)";
+    if (string == NULL)
+        string = "(null)";
 
-	for (i = 0; string[i] != '\0'; i++)
-	{
-		_putchar(string[i]);
-	}
-	return (i);
+    for (i = 0; string[i] != '\0'; i++)
+    {
+        _putchar(string[i]);
+    }
+    return (i);
 }
 
 /**
@@ -31,19 +31,19 @@ int print_string(va_list args)
 
 int print_character(va_list args)
 {
-	_putchar(va_arg(args, int));
-	return (1);
+    _putchar(va_arg(args, int));
+    return (1);
 }
 
 /**
- * print_percent - printing character.
+ * print_percent - printing percent character.
  * @args: va_list type.
  * Return: 1 on success, otherwise NULL.
  */
 
 int print_percent(va_list args)
 {
-	int percent __attribute__((unused)) = va_arg(args, int);
-	_putchar('%');
-	return (1);
+    (void)args;
+    _putchar('%');
+    return (1);
 }
