@@ -94,6 +94,6 @@ int print_number(int n)
     /* Recursively print digits */
     if (n / 10)
         count += print_number(n / 10);
-    _putchar(n % 10 + '0');
+    _putchar(n < 0 ? '0' - (n % 10) : '0' + (n % 10));
     return (count + 1);
 }
