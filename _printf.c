@@ -11,30 +11,13 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int count = 0;
+	const char *ptr = format;
+	int (*func_p)(va_list) = 0;
 
 	if (format == NULL)
 		return (-1);
 
 	va_start(args, format);
-	count = handle_format(format, args);
-	va_end(args);
-
-	return (count);
-}
-
-/**
- * handle_format - Handles the format string and calls the appropriate
- *                 printing functions for each specifier
- * @format: The format string
- * @args: The va_list of arguments
- *
- * Return: The number of characters printed
- */
-int handle_format(const char *format, va_list args)
-{
-	int count = 0;
-	const char *ptr = format;
-	int (*func_p)(va_list) = 0;
 
 	while (*ptr)
 	{
@@ -72,5 +55,6 @@ int handle_format(const char *format, va_list args)
 		ptr++;
 	}
 
+	va_end(args);
 	return (count);
 }
