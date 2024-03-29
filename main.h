@@ -20,8 +20,8 @@ int _putchar(char c);
  */
 typedef struct fmt
 {
-    char str;
-    int (*p)(va_list);
+char str;
+int (*p)(va_list);
 } f;
 
 #endif /* MAIN_H */
