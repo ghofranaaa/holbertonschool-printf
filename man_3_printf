@@ -26,3 +26,41 @@ If an error occurs, it returns -1.
 .SH FORMAT SPECIFIERS
 The format string may contain conversion specifiers, each beginning with a '%'
 character, followed by a conversion specifier character.
+
+the following converion specifiers are supported:
+
+.TP
+.B %c
+Print a single character.
+
+.TP
+.B %s
+Print a null-terminated string.
+
+.TP
+.B %%
+Print a literal '%'.
+
+.TP
+.B %d
+Print a signed decimal integer.
+
+.TP
+.B %i
+Print a signed decimal integer.
+
+.SH EXAMPLES
+Example usage of _printf function:
+
+.in +4
+.nf
+.sp
+\fB_printf("Hello, %s!\n", "world");\fR
+.br
+Prints: Hello, world!
+.sp
+\fB_printf("Value: %d\n", 42);\fR
+.br
+Prints: Value: 42
+.fi
+.in
