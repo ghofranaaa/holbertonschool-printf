@@ -14,21 +14,21 @@ This project provides a customized version of the printf function in C. It suppo
 
 ## Project Requirements
 
-Compilation: All files will be compiled on Ubuntu 20.04 LTS using gcc, with the options -Wall -Werror -Wextra -pedantic -std=gnu89.
+- Compilation: All files will be compiled on Ubuntu 20.04 LTS using gcc, with the options -Wall -Werror -Wextra -pedantic -std=gnu89.
 
-Newline: All files should end with a new line.
+- Newline: All files should end with a new line.
 
-README.md: A README.md file is mandatory at the root of the project folder.
+- README.md: A README.md file is mandatory at the root of the project folder.
 
-Coding Style: The code should follow the Betty style, checked using betty-style.pl and betty-doc.pl.
+- Coding Style: The code should follow the Betty style, checked using betty-style.pl and betty-doc.pl.
 
-Global Variables: No use of global variables.
+- Global Variables: No use of global variables.
 
-Functions per File: No more than 5 functions are allowed per file.
+- Functions per File: No more than 5 functions are allowed per file.
 
-Prototypes: All function prototypes should be included in a header file named main.h.
+- Prototypes: All function prototypes should be included in a header file named main.h.
 
-Header Files: All header files should be include guarded.
+- Header Files: All header files should be include guarded.
 
 
 ## API Reference
