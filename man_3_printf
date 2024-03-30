@@ -1,4 +1,21 @@
-PRINTF(3)			Linux Programmer's Manual			PRINTF(3)
+.TH PRITNF 3 "MARCH 2024"
 
-NAME
-		_printf - Prints formatted output to stdout
+.SH NAME
+.B _printf
+\- Print formatted output to stdout
+
+.SH SYNOPSIS
+.B #include "main.h"
+.br
+.in +4
+.B int _printf(const char *format, ...);
+.br
+.in
+
+.SH DESCRIPTION
+The
+.B _printf
+function prints formatted output to the standard output (stdout).
+It accepts a format string followed by a variable number of arguments, which
+are inserted into the format string based on format specifiers.
+
