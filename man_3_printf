@@ -64,3 +64,10 @@ Prints: Hello, world!
 Prints: Value: 42
 .fi
 .in
+
+.SH SEE ALSO
+.B printf(3), fprintf(3), sprintf(3), snprintf(3)
+
+.SH AUTHOR
+This version of _printf was written by Ghofrane Amemi and Oussema Turki.
+
