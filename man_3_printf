@@ -1,0 +1,4 @@
+PRINTF(3)			Linux Programmer's Manual			PRINTF(3)
+
+NAME
+		_printf - Prints formatted output to stdout
