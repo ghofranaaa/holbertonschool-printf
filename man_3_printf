@@ -71,3 +71,5 @@ Prints: Value: 42
 .SH AUTHOR
 This version of _printf was written by Ghofrane Amemi and Oussema Turki.
 
+.SH COPYRIGHT
+Anyone can use it. It's totally free.
