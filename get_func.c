@@ -24,9 +24,9 @@ int (*get_func(char format))(va_list args)
 
 	int i; /* Declare an int variable i */
 
-	for (i = 0; fu[i].str != '\0'; i++)
+	for (i = 0; fu[i].fs != '\0'; i++)
 	{
-		if (fu[i].str == format)
+		if (fu[i].fs == format)
 		{
 			return (fu[i].p);
 		}

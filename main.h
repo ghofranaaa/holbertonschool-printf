@@ -17,12 +17,12 @@ int print_number(int n);
 
 /**
  * struct fmt - struct declaration.
- * @str: format specifier.
+ * @fs: format specifier.
  * @p: pointer to function.
  */
 typedef struct fmt
 {
-char str;
+char fs;
 int (*p)(va_list);
 } f;
 
