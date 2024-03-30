@@ -19,3 +19,6 @@ function prints formatted output to the standard output (stdout).
 It accepts a format string followed by a variable number of arguments, which
 are inserted into the format string based on format specifiers.
 
+.SH RETURN VALUE
+Upon successful completion, _printf returns the numbers of characters printed.
+If an error occurs, it returns -1.
