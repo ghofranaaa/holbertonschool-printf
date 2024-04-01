@@ -6,11 +6,6 @@
 # C - printf
 
 This project provides a customized version of the printf function in C. It supports basic formatting specifiers such as %d, %f, %s, etc., and handles variadic arguments for flexibility.
-## Authors
-
-- [@OussemaTurki0](https://github.com/OussemaTurki0)
-- [@ghofranaaa](https://github.com/ghofranaaa)
-
 
 ## Project Requirements
 
